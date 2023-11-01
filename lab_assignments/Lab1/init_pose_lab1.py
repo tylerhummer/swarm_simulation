@@ -38,30 +38,18 @@ def init(swarmsize, x, y, theta, a_ids):
 '''
 def init(swarmsize, x, y, theta, a_ids):
     import math
-    spacey=.24
-    
-    spacex=.176
     import random
+    
     for i in range(swarmsize):
-        if math.floor(i/16)%2==0:
-            y[i] = (i % 16 ) * spacey
-            x[i] = math.floor(i / 16 ) * spacex
-            a_ids[i] = 0
-            theta[i] = 0
-            if i==0:
-                a_ids[i]=1
-            elif i==15:
-                a_ids[i]=2
-        else:
-            y[i] = (i % 16 ) * spacey+spacey/2
-            x[i] = math.floor(i / 16 ) * spacex
-            a_ids[i] = 0
-            theta[i] = 0
-            if i==0:
-                a_ids[i]=1
-            elif i==15:
-                a_ids[i]=2
-
-
+        x[i] = random.uniform(-4, 4) 
+        y[i] = random.uniform(-4, 4) 
+        a_ids[i] = i
+        theta[i] = random.uniform(-math.pi, math.pi)
+        # if i%3==0:
+		# 	a_ids[i]=1
+		# elif i%3==1:
+		# 	a_ids[i]=0
+		# else:
+		# 	a_ids[i]=2
 
     return x, y, theta, a_ids
